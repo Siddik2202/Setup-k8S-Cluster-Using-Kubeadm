@@ -70,7 +70,7 @@ systemctl status containerd
 curl -LO https://github.com/opencontainers/runc/releases/download/v1.1.12/runc.amd64
 sudo install -m 755 runc.amd64 /usr/local/sbin/runc
 ```
-6. install cni plugin
+6. Install cni plugin
 ```
 curl -LO https://github.com/containernetworking/plugins/releases/download/v1.5.0/cni-plugins-linux-amd64-v1.5.0.tgz
 sudo mkdir -p /opt/cni/bin
@@ -133,3 +133,13 @@ kubectl apply -f custom-resources.yaml
     kubeadm token create --print-join-command
 
 by Abu Bakkar Siddik
+
+update 
+
+curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.34/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.34/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
+
+sudo apt-get update
+sudo apt-get install -y kubelet=1.34.1-1.1 kubeadm=1.34.1-1.1 kubectl=1.34.1-1.1 --allow-downgrades --allow-change-held-packages
+
+
