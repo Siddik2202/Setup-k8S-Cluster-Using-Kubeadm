@@ -134,7 +134,7 @@ kubectl apply -f custom-resources.yaml
 
 by Abu Bakkar Siddik
 
-update 
+sudo apt-get update 
 
 curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.34/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg 
 
